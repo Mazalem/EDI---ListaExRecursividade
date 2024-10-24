@@ -1,9 +1,16 @@
 public class Ex2 {
     public static void main(String[] args) {
-        System.out.println(potencia(5));
+        try{
+            System.out.println(potencia(5));
+        }catch(Exception ex) {
+            System.err.println(ex.getMessage());
+        }
     }
 
-    public static int potencia(int expoente) {
+    public static int potencia(int expoente) throws Exception {
+        if(expoente < 0) {
+            throw new Exception("Não fazemos potência de número negativo!");
+        }
         if(expoente == 0)
             return 1;
         else
